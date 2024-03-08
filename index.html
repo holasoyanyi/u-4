@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Firebase</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link href="assets/css/styles.css">
+</head>
+<body style="background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fpurple-gradient-background-vector-wallpaper-smooth-gradient-texture-vector-id953441854%3Fk%3D6%26m%3D953441854%26s%3D170667a%26w%3D0%26h%3Dgqtj4mXuqjBmVeeMItPOljCex6R48Rsibivnctk8ZFk%3D&f=1&nofb=1&ipt=e6fe5afa8661eb9e7e4b423c7ac8183acf5ee06bf55ea1848ef18e31b62b1909&ipo=images); background-size: cover;">
+ <!--HOLAA PROFEEE-->  
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #E75CF5!important;" role="navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/logo_FC-removebg-preview.png" alt="Bootstrap" width="70" height="70">
+      </a>
+      <a class="navbar-brand" href="#" style="font-size: large"><b>Friend's coding</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signin-modal">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signup-modal">Registrarse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logged-in" id="logout" href="#">Salir</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <br><br>
+  <h1><center>¡Envía tus mensajes!</center></h1>
+
+  <br><br><br>
+  <!--Cómo estáss?-->
+  <div class="row">
+    <div class="col">
+      <div class="card mb-3" style="width: 20rem;">
+        <div class="card-body">
+          <main class="row mx-auto" id="task-main-container">
+            <div class="col-md-7" id="task-form-container">
+              <div id="create-tasks">
+                <form id="create-form">
+                  <label for="task-title" style="color: #c969a9;"><b>Title:</b></label>
+                  <input type="text" id="task-title" />
+                  <label for="task-content" style="color: #c969a9;"><b>Content:</b></label>
+                  <textarea id="task-content" cols="30" rows="5"></textarea>
+                  <button class="btn btn-task-save" style="background-color: #c969a9; color: aliceblue;" type="submit" id="btn-task-save">Create Task</button>
+                </form>
+              </div>
+            </div>
+            <!-- Acá se mostrarán las tasks de la base de datos -->
+          </main>
+        </div>
+      </div>
+      <div class="card  text-center" style="max-width: 20rem;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffondosmil.com%2Ffondo%2F1059.jpg&f=1&nofb=1&ipt=e94b58f156c92f6d3aa4f8d0a0d8fa1f70bc2da17cf1ed9ca30a23ebe7b412e2&ipo=images" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8" style="background-color: #c969a9;">
+            <div class="card-body">
+              <h5 class="card-title">Nosotros...</h5>
+              <p class="card-text">Generamos un sitio seguro para las personas que quieran aprender a programar y dejar notas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+         
+
+    
+      <!-- Signin modal -->
+      <div class="modal fade" id="signin-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Signin</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="signin-form">
+                <label for="email-signin" class="mb-1">Email</label>
+                <input id="email-signin" type="email" class="form-control mb-3" placeholder="Email" required>
+                <label for="password-signin" for="password-signin" class="mb-1">Password</label>
+                <input id="password-signin" type="password" class="form-control mb-3" placeholder="******" required>
+                <button type="submit" class="btn btn-primary form-control mb-2">Login</button>
+                <hr />
+                <button id="google-login" class="btn btn-info">Google</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Signup modal -->
+      <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Signup</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="signup-form">
+                <label for="email-signup" class="mb-1">Email</label>
+                <input id="email-signup" type="email" class="form-control mb-3" placeholder="Email" required>
+                <label for="password-signup" class="mb-1">Password</label>
+                <input id="password-signup" type="password" class="form-control mb-3" placeholder="******" required>
+                <button type="submit" class="btn btn-primary">Register</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="col-md-10" id="tasks-container"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
